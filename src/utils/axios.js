@@ -8,8 +8,6 @@ const VueAxios = {
     this.installed = true;
 
     if (!instance) {
-      // eslint-disable-next-line no-console
-      console.error("You have to install axios");
       return;
     }
 

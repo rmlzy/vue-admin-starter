@@ -16,12 +16,11 @@ export default {
   data() {
     return {
       locale: zhCN,
-      setting,
     };
   },
   mounted() {
     if (process.env.NODE_ENV !== "production") {
-      updateTheme(this.settings.primaryColor);
+      updateTheme(setting.primaryColor);
     }
   },
 };

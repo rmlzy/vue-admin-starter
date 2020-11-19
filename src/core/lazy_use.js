@@ -44,13 +44,14 @@ import {
   Result,
   Statistic,
   Descriptions,
+  Tree,
+  TreeSelect,
+  Empty,
   message,
   notification,
 } from "ant-design-vue";
-import Viser from "viser-vue";
 
 // ext library
-import VueCropper from "vue-cropper";
 import Dialog from "@/components/Dialog";
 import MultiTab from "@/components/MultiTab";
 import PageLoading from "@/components/PageLoading";
@@ -97,6 +98,9 @@ Vue.use(PageHeader);
 Vue.use(Result);
 Vue.use(Statistic);
 Vue.use(Descriptions);
+Vue.use(Tree);
+Vue.use(TreeSelect);
+Vue.use(Empty);
 
 Vue.prototype.$confirm = Modal.confirm;
 Vue.prototype.$message = message;
@@ -106,8 +110,16 @@ Vue.prototype.$success = Modal.success;
 Vue.prototype.$error = Modal.error;
 Vue.prototype.$warning = Modal.warning;
 
-Vue.use(Viser);
 Vue.use(Dialog); // this.$dialog func
 Vue.use(MultiTab);
 Vue.use(PageLoading);
-Vue.use(VueCropper);
+
+import ECharts from "vue-echarts";
+import "echarts/lib/chart/bar";
+import "echarts/lib/chart/pie";
+import "echarts/lib/chart/line";
+import "echarts/lib/chart/funnel";
+import "echarts/lib/component/tooltip";
+import "echarts/lib/component/title";
+import "echarts/lib/component/legend";
+Vue.component("v-chart", ECharts);

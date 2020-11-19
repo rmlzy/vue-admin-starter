@@ -1,20 +1,10 @@
 const path = require("path");
 const webpack = require("webpack");
-const GitRevisionPlugin = require("git-revision-webpack-plugin");
-const GitRevision = new GitRevisionPlugin();
 const buildDate = JSON.stringify(new Date().toLocaleString());
 const createThemeColorReplacerPlugin = require("./config/plugin.config");
 
 function resolve(dir) {
   return path.join(__dirname, dir);
-}
-
-// check Git
-function getGitHash() {
-  try {
-    return GitRevision.version();
-  } catch (e) {}
-  return "unknown";
 }
 
 const isProd = process.env.NODE_ENV === "production";
@@ -46,7 +36,6 @@ const vueConfig = {
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new webpack.DefinePlugin({
         APP_VERSION: `"${require("./package.json").version}"`,
-        GIT_HASH: JSON.stringify(getGitHash()),
         BUILD_DATE: buildDate,
       }),
     ],
@@ -87,7 +76,7 @@ const vueConfig = {
     loaderOptions: {
       less: {
         modifyVars: {
-          "primary-color": "#e1251b",
+          "primary-color": "#027db4",
           "border-radius-base": "2px",
         },
         // DO NOT REMOVE THIS LINE

@@ -1,5 +1,5 @@
 <template>
-  <div>版权信息</div>
+  <div></div>
 </template>
 
 <script>
